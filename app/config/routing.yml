@@ -1,0 +1,7 @@
+safe_board:
+    resource: "@SafeBoardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
