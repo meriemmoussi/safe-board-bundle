@@ -3,10 +3,14 @@
 namespace SafeBoardBundle\Controller;
 
 use SafeBoardBundle\Entity\Association;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use SafeBoardBundle\Service\Validate;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class AssociationController extends Controller
 {
@@ -32,9 +36,10 @@ class AssociationController extends Controller
         return $response;
     }
 
-
-    public function getAssociationAction(Association $association)
+    public function getAssociationAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $association = $em->getRepository(Association::class)->findAll();
         $data = $this->get('jms_serializer')->serialize($association, 'json');
         $response = new Response($data);
         return $response;

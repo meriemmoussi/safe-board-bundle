@@ -21,18 +21,3 @@ delete:
     path:     /delete/{id}
     defaults: { _controller: SafeBoardBundle:Association:delete }
 
-add_reclamation:
-    path:     /addReclamation
-    defaults: { _controller: SafeBoardBundle:Reclamation:addReclamation }
-
-get_all_reclamations:
-    path:     /getAllReclamations
-    defaults: { _controller: SafeBoardBundle:Reclamation:getAllReclamations }
-
-update_reclamation:
-    path:     /updateReclamation
-    defaults: { _controller: SafeBoardBundle:Reclamation:updateReclamation }
-
-delete_reclamation:
-    path:     /deleteReclamation
-    defaults: { _controller: SafeBoardBundle:Reclamation:deleteReclamation }
